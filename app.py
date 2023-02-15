@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route('/<query>', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
 def index(query=''):
     if request.method == 'POST':
         return redirect('/' + request.form['query'])
