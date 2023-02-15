@@ -7,7 +7,7 @@ if os.path.exists(path):
     API_KEY = os.environ.get('API_KEY')
 
 
-def get_weather(query):
+def get_weather(query=''):
     if not query:
         query = 'fetch:ip'
     response = request(
@@ -20,10 +20,7 @@ def get_weather(query):
     )
     if response.status_code == 200:
         return {
-            'icon': request(
-                method='GET',
-                url=response.json()['current']['weather_icons'][0]
-            ).content,
+            'icon': response.json()['current']['weather_icons'][0],
             'temperature': response.json()['current']['temperature'],
             'wind_speed': response.json()['current']['wind_speed']
         }

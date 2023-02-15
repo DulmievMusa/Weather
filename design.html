@@ -16,17 +16,30 @@
             margin: auto;
             margin-top:2rem;
         }
+        img {
+            height: 100%;
+            margin-right: 15vh;
+        }
+        .form-control {
+            width: 30%;
+            margin-right: 1vh;
+        }
     </style>
 </head>
 <body>
 <div class="card">
+    <form class="card-body form-inline d-flex flex-row" method="POST">
+        <input type="text" name="query" class="form-control"
+                placeholder="Введите местоположение"/>
+        <button class="btn btn-primary" type="submit">Поиск</button>
+    </form>
     <div class="card-body info d-flex flex-row">
         <div class="weather-icon">
             <img src="{{ icon }}">
         </div>
         <div class="weather-info d-flex flex-column flex-grow-1 display-3">
             <div class="weather-temperature">
-                Температура {{ temperature}} &deg;C
+                Температура {{ temperature }} &deg;C
             </div>
             <div class="weather-wind-speed">
                 Скорость ветра: {{ wind_speed }} км/ч
